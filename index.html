@@ -1,174 +1,369 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RentaCRM</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;background:#0f172a;color:#f1f5f9;display:flex;min-height:100vh}
-::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#253349;border-radius:3px}
-#sb{width:230px;background:#080d1a;border-right:1px solid #253349;display:flex;flex-direction:column;flex-shrink:0;height:100vh;overflow-y:auto}
-.logo{padding:20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #253349}
-.logo b{font-size:18px;color:#a78bfa}
-.logo i{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:17px;font-style:normal;box-shadow:0 4px 12px rgba(99,102,241,.35)}
-.nh{padding:18px 20px 6px;font-size:10px;font-weight:700;letter-spacing:2px;color:#475569;text-transform:uppercase}
-.ni{width:100%;display:flex;align-items:center;gap:10px;padding:10px 20px;border:none;cursor:pointer;font-size:14px;font-family:inherit;font-weight:500;color:#64748b;background:none;border-left:3px solid transparent;transition:.15s}
-.ni:hover{color:#94a3b8;background:rgba(139,92,246,.06)}
-.ni.on{color:#f1f5f9;font-weight:700;background:rgba(139,92,246,.15);border-left-color:#8b5cf6}
-.ni em{font-size:16px;width:22px;text-align:center;font-style:normal}
-.nb{margin-left:auto;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff}
-.nb.p{background:#8b5cf6}.nb.r{background:#ef4444}
-.sf{margin-top:auto;padding:14px 20px;border-top:1px solid #253349}
-.sf button{width:100%;padding:8px;font-size:12px;font-weight:600;font-family:inherit;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1px solid}
-#mn{flex:1;padding:22px 34px 40px;overflow-y:auto;height:100vh}
-.tp{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
-.tp h2{font-size:22px;font-weight:800}
-.hero{background:linear-gradient(135deg,#1a2338,#0f172a);border-radius:16px;padding:28px;margin-bottom:24px;border:1px solid #253349}
-.hl{font-size:11px;font-weight:700;letter-spacing:2px;color:#64748b;text-transform:uppercase;margin-bottom:8px}
-.ha{font-size:42px;font-weight:800;color:#22c55e;margin-bottom:6px;line-height:1.1}
-.hs{color:#94a3b8;font-size:14px;margin-bottom:16px}
-.hp{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.pl{border-radius:10px;padding:10px 18px}
-.plg{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3)}
-.plp{background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3)}
-.plb{font-size:10px;font-weight:700;letter-spacing:1px}
-.plg .plb,.plg .plv{color:#22c55e}.plp .plb,.plp .plv{color:#a78bfa}
-.plv{font-size:22px;font-weight:800}.plv span{font-size:13px;font-weight:400}
-.hf{font-size:13px;color:#64748b}
-.st{font-size:16px;font-weight:700;margin-bottom:14px}
-.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px}
-.cc{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 14px;border-radius:12px;border:1.5px solid;text-align:center}
-.cc .dt{width:40px;height:40px;border-radius:50%}
-.cc .ct{font-size:11px;font-weight:700;letter-spacing:1.5px;color:#94a3b8;text-transform:uppercase}
-.cc .cv{font-size:16px;font-weight:800}.cc .cd{font-size:12px;color:#64748b}
-.cc.grn{border-color:#22c55e;background:rgba(34,197,94,.12)}.cc.grn .dt{background:#22c55e;box-shadow:0 0 16px rgba(34,197,94,.4)}.cc.grn .cv{color:#22c55e}
-.cc.yel{border-color:#eab308;background:rgba(234,179,8,.12)}.cc.yel .dt{background:#eab308;box-shadow:0 0 16px rgba(234,179,8,.4)}.cc.yel .cv{color:#eab308}
-.cc.red{border-color:#ef4444;background:rgba(239,68,68,.12)}.cc.red .dt{background:#ef4444;box-shadow:0 0 16px rgba(239,68,68,.4)}.cc.red .cv{color:#ef4444}
-.sp{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:1100px){.sp{grid-template-columns:1fr}#sb{display:none}#mn{padding:16px}}
-.cd2{background:#1e293b;border-radius:14px;border:1px solid #334155;overflow:hidden}
-.cd2b{padding:20px}
-table{width:100%;border-collapse:collapse;font-size:13px}
-thead tr{background:#0f172a}
-th{padding:10px 14px;color:#64748b;font-weight:700;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.8px}
-td{padding:10px 14px;border-top:1px solid #0f172a}
-tr:hover td{background:rgba(139,92,246,.04)}
-.bg{display:inline-block;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:700}
-.bgn{color:#22c55e;background:rgba(34,197,94,.12)}.brd{color:#ef4444;background:rgba(239,68,68,.12)}.byl{color:#eab308;background:rgba(234,179,8,.12)}.bpr{color:#8b5cf6;background:rgba(139,92,246,.15)}.bgr{color:#64748b;background:rgba(100,116,139,.12)}
-.ow{background:#1e293b;border-radius:12px;padding:14px 18px;border:1px solid #334155;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.ow:hover{border-color:#8b5cf6}
-.owl{display:flex;align-items:center;gap:14px}
-.av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
-.owt{font-size:10px;padding:2px 8px;border-radius:4px;font-weight:700;margin-right:4px}
-.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.sh h3{font-size:18px;font-weight:700}
-.bt{padding:10px 22px;border:none;border-radius:8px;font-weight:700;font-family:inherit;font-size:14px;cursor:pointer}
-.bt1{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;box-shadow:0 4px 12px rgba(99,102,241,.3)}
-.bt2{background:#334155;color:#f1f5f9}
-.bti{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px}
-.btc{background:#22c55e;color:#fff;border:none;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
-.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:24px}
-.dc{background:#1e293b;border-radius:14px;padding:20px;border:1px solid #334155}
-.dc:hover{border-color:#8b5cf6}
-.dc .di{font-size:24px;margin-bottom:8px}.dc .dl{font-size:11px;color:#64748b;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}.dc .dv{font-size:26px;font-weight:800}
-.lr{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #0f172a;font-size:13px}.lr:last-child{border-bottom:none}
-.mo{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center}
-.mb{background:#1e293b;border-radius:16px;padding:28px;width:520px;max-width:92vw;max-height:85vh;overflow-y:auto;border:1px solid #334155;box-shadow:0 25px 50px rgba(0,0,0,.5)}
-.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.mh h3{font-size:18px;font-weight:700}
-.mx{background:none;border:none;color:#94a3b8;font-size:22px;cursor:pointer;padding:4px 8px}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ff{margin-bottom:14px}
-.ff label{display:block;color:#94a3b8;font-size:12px;font-weight:600;margin-bottom:6px}
-.ff input,.ff select,.ff textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid #334155;border-radius:8px;color:#f1f5f9;font-size:14px;font-family:inherit;outline:0}
-.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:#8b5cf6}
-.ff textarea{min-height:70px;resize:vertical}
-.ff input[type=range]{padding:0;background:none;border:none;accent-color:#8b5cf6}
-.fa{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
-.rl{display:flex;justify-content:space-between;font-size:11px;color:#64748b;margin-top:4px}
-.em{padding:28px;text-align:center;color:#64748b;font-size:14px}</style>
+<title>QQQ Holdings Tracker</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #1a1d27;
+    --bg3: #22263a;
+    --border: rgba(255,255,255,0.08);
+    --text: #e8eaf0;
+    --muted: #7b82a0;
+    --green: #00c896;
+    --green-dim: rgba(0,200,150,0.12);
+    --red: #ff4d6a;
+    --red-dim: rgba(255,77,106,0.12);
+    --accent: #4f8eff;
+    --accent-dim: rgba(79,142,255,0.12);
+    --font: 'DM Mono', 'Fira Code', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 13px; min-height: 100vh; }
+  header { padding: 20px 24px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); }
+  .logo span { color: var(--accent); }
+  .qqq-price { font-size: 28px; font-weight: 700; }
+  .qqq-chg { font-size: 14px; margin-left: 8px; }
+  .header-meta { font-size: 11px; color: var(--muted); margin-left: auto; line-height: 1.6; text-align: right; }
+  .toolbar { display: flex; align-items: center; gap: 10px; padding: 14px 24px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .btn { background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-family: var(--font); font-size: 12px; padding: 7px 14px; border-radius: 6px; cursor: pointer; transition: all 0.15s; }
+  .btn:hover { background: var(--bg3); border-color: rgba(255,255,255,0.18); }
+  .btn.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+  .btn-refresh { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+  .btn-refresh:hover { background: rgba(79,142,255,0.22); }
+  select { background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-family: var(--font); font-size: 12px; padding: 7px 12px; border-radius: 6px; cursor: pointer; outline: none; }
+  .status { font-size: 11px; padding: 5px 12px; border-radius: 20px; border: 1px solid; white-space: nowrap; }
+  .status.idle { color: var(--muted); border-color: var(--border); background: var(--bg2); }
+  .status.loading { color: #ffd060; border-color: rgba(255,208,96,0.3); background: rgba(255,208,96,0.08); }
+  .status.ok { color: var(--green); border-color: rgba(0,200,150,0.3); background: var(--green-dim); }
+  .status.err { color: var(--red); border-color: rgba(255,77,106,0.3); background: var(--red-dim); }
+  .ts { font-size: 11px; color: var(--muted); margin-left: auto; }
+  .search-wrap { position: relative; }
+  .search-wrap input { background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-family: var(--font); font-size: 12px; padding: 7px 12px 7px 28px; border-radius: 6px; width: 160px; outline: none; }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .si { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 11px; pointer-events: none; }
+  .summary { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
+  .s-card { background: var(--bg); padding: 14px 20px; }
+  .s-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .s-val { font-size: 20px; font-weight: 700; }
+  .s-val.up { color: var(--green); }
+  .s-val.dn { color: var(--red); }
+  .s-val.neu { color: var(--muted); }
+  #table-view { max-height: calc(100vh - 280px); overflow-y: auto; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 660px; }
+  thead th { padding: 10px 16px; text-align: left; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; position: sticky; top: 0; background: var(--bg); }
+  thead th:hover { color: var(--text); }
+  thead th.sorted { color: var(--accent); }
+  thead th:not(:first-child) { text-align: right; }
+  thead th:last-child { text-align: left; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: var(--bg2); }
+  tbody td { padding: 9px 16px; }
+  tbody td:not(:first-child):not(:last-child) { text-align: right; }
+  .rank { color: var(--muted); font-size: 10px; margin-right: 5px; }
+  .ticker-text { font-weight: 700; font-size: 14px; }
+  .name { color: var(--muted); font-size: 11px; }
+  .wbar { display: inline-block; height: 3px; background: var(--accent); border-radius: 2px; opacity: 0.45; vertical-align: middle; margin-left: 6px; }
+  .chg-pos { color: var(--green); font-weight: 700; }
+  .chg-neg { color: var(--red); font-weight: 700; }
+  .chg-neu { color: var(--muted); }
+  .bar-wrap { display: flex; align-items: center; gap: 6px; min-width: 80px; }
+  .bar-track { flex: 1; height: 3px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 2px; }
+  .skel { display: inline-block; width: 56px; height: 11px; background: var(--bg3); border-radius: 3px; animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.6}50%{opacity:0.2} }
+  #map-view { padding: 16px 24px; }
+  #treemap-canvas { width: 100%; display: block; border-radius: 8px; }
+  .map-legend { display: flex; gap: 20px; align-items: center; font-size: 11px; color: var(--muted); margin-bottom: 10px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-sw { width: 12px; height: 12px; border-radius: 2px; }
+  .note { font-size: 10px; color: var(--muted); padding: 8px 24px; border-top: 1px solid var(--border); }
+  @media (max-width:600px) { .summary { grid-template-columns: repeat(3,1fr); } .qqq-price { font-size: 20px; } }
+</style>
 </head>
 <body>
-<aside id="sb">
-<div class="logo"><i>&#127968;</i><b>RentaCRM</b></div>
-<nav id="nv"></nav>
-<div class="sf">
-<div style="text-align:center;padding:7px;font-size:11px;font-weight:600;border-radius:6px;color:#22c55e;background:rgba(34,197,94,.12);margin-bottom:8px">&#128994; Datos locales</div>
-<button style="background:rgba(139,92,246,.15);color:#8b5cf6;border-color:rgba(139,92,246,.2)" onclick="exportD()">&#128228; Exportar</button>
-<button style="background:rgba(34,197,94,.12);color:#22c55e;border-color:rgba(34,197,94,.2)" onclick="importD()">&#128229; Importar</button>
-<button style="background:rgba(239,68,68,.12);color:#ef4444;border-color:rgba(239,68,68,.2)" onclick="resetD()">&#128260; Reset</button>
+
+<header>
+  <div>
+    <div class="logo">QQQ <span>Holdings</span></div>
+    <div style="font-size:11px;color:var(--muted);margin-top:2px;">Invesco QQQ Trust — Top 50 holdings</div>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:4px;">
+    <span class="qqq-price" id="qqq-price">—</span>
+    <span class="qqq-chg" id="qqq-chg"></span>
+  </div>
+  <div class="header-meta" id="header-meta">Presioná Actualizar para cargar precios</div>
+</header>
+
+<div class="toolbar">
+  <button class="btn btn-refresh" onclick="loadData()">&#8635; Actualizar</button>
+  <div class="search-wrap">
+    <span class="si">&#9740;</span>
+    <input type="text" id="search" placeholder="Buscar ticker..." oninput="applyFilters()">
+  </div>
+  <select id="sortSel" onchange="applySort()">
+    <option value="weight">Peso %</option>
+    <option value="chg">% cambio (mayor)</option>
+    <option value="chg-asc">% cambio (menor)</option>
+    <option value="ticker">Ticker A-Z</option>
+    <option value="price">Precio</option>
+  </select>
+  <button class="btn active" id="btn-table" onclick="setView('table')">Tabla</button>
+  <button class="btn" id="btn-map" onclick="setView('map')">Mapa de calor</button>
+  <span class="status idle" id="status">Sin datos</span>
+  <span class="ts" id="ts"></span>
 </div>
-</aside>
-<main id="mn">
-<div class="tp"><h2>&#9889; Panel Administrativo</h2><div style="display:flex;align-items:center;gap:16px;font-size:13px"><span style="color:#22c55e;font-weight:700">Online</span><span style="color:#64748b" id="dtt"></span></div></div>
-<div id="ct"></div>
-</main>
-<div id="mr"></div>
+
+<div class="summary">
+  <div class="s-card"><div class="s-label">Subiendo</div><div class="s-val up" id="s-up">—</div></div>
+  <div class="s-card"><div class="s-label">Bajando</div><div class="s-val dn" id="s-dn">—</div></div>
+  <div class="s-card"><div class="s-label">Sin cambio</div><div class="s-val neu" id="s-flat">—</div></div>
+  <div class="s-card"><div class="s-label">Mayor subida</div><div class="s-val up" id="s-top">—</div></div>
+  <div class="s-card"><div class="s-label">Mayor caída</div><div class="s-val dn" id="s-bot">—</div></div>
+</div>
+
+<div id="table-view">
+  <table>
+    <thead>
+      <tr>
+        <th onclick="sortBy('ticker')" id="th-ticker">Ticker / Nombre</th>
+        <th onclick="sortBy('weight')" id="th-weight" class="sorted">Peso %</th>
+        <th onclick="sortBy('price')" id="th-price">Precio</th>
+        <th onclick="sortBy('chg')" id="th-chg">% día</th>
+        <th>Variación</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div id="map-view" style="display:none;">
+  <div class="map-legend">
+    <span>Tamaño = peso en QQQ &nbsp;·&nbsp; Color = % cambio hoy</span>
+    <div class="legend-item"><div class="legend-sw" style="background:#00c896;"></div>Sube</div>
+    <div class="legend-item"><div class="legend-sw" style="background:#ff4d6a;"></div>Baja</div>
+    <div class="legend-item"><div class="legend-sw" style="background:#2a2d3a;"></div>Sin datos</div>
+  </div>
+  <canvas id="treemap-canvas" role="img" aria-label="Mapa de calor de holdings de QQQ"></canvas>
+</div>
+
+<div class="note" id="note"></div>
+
 <script>
+const HOLDINGS = [
+  {t:'MSFT',n:'Microsoft',w:8.80},{t:'AAPL',n:'Apple',w:8.50},{t:'NVDA',n:'NVIDIA',w:8.20},
+  {t:'AMZN',n:'Amazon',w:5.50},{t:'META',n:'Meta',w:5.10},{t:'GOOGL',n:'Alphabet A',w:4.20},
+  {t:'GOOG',n:'Alphabet C',w:3.90},{t:'TSLA',n:'Tesla',w:3.50},{t:'AVGO',n:'Broadcom',w:3.30},
+  {t:'COST',n:'Costco',w:2.60},{t:'NFLX',n:'Netflix',w:2.40},{t:'AMD',n:'AMD',w:1.90},
+  {t:'ADBE',n:'Adobe',w:1.60},{t:'QCOM',n:'Qualcomm',w:1.50},{t:'INTC',n:'Intel',w:1.30},
+  {t:'CSCO',n:'Cisco',w:1.30},{t:'PEP',n:'PepsiCo',w:1.20},{t:'TXN',n:'Texas Instruments',w:1.20},
+  {t:'INTU',n:'Intuit',w:1.10},{t:'AMGN',n:'Amgen',w:1.10},{t:'AMAT',n:'Applied Materials',w:1.00},
+  {t:'MU',n:'Micron',w:0.95},{t:'ISRG',n:'Intuitive Surgical',w:0.90},{t:'LRCX',n:'Lam Research',w:0.85},
+  {t:'REGN',n:'Regeneron',w:0.80},{t:'ADI',n:'Analog Devices',w:0.78},{t:'PANW',n:'Palo Alto',w:0.75},
+  {t:'KLAC',n:'KLA Corp',w:0.72},{t:'SNPS',n:'Synopsys',w:0.68},{t:'CDNS',n:'Cadence',w:0.65},
+  {t:'CRWD',n:'CrowdStrike',w:0.63},{t:'MELI',n:'MercadoLibre',w:0.60},{t:'ASML',n:'ASML',w:0.58},
+  {t:'ABNB',n:'Airbnb',w:0.55},{t:'WDAY',n:'Workday',w:0.52},{t:'FTNT',n:'Fortinet',w:0.50},
+  {t:'PLTR',n:'Palantir',w:0.48},{t:'CTAS',n:'Cintas',w:0.46},{t:'ROP',n:'Roper Tech',w:0.44},
+  {t:'DASH',n:'DoorDash',w:0.42},{t:'DXCM',n:'DexCom',w:0.40},{t:'MRVL',n:'Marvell Tech',w:0.38},
+  {t:'AZN',n:'AstraZeneca',w:0.36},{t:'TEAM',n:'Atlassian',w:0.34},{t:'BIIB',n:'Biogen',w:0.32},
+  {t:'GILD',n:'Gilead',w:0.30},{t:'VRTX',n:'Vertex',w:0.30},{t:'TTWO',n:'Take-Two',w:0.28},
+  {t:'NXPI',n:'NXP Semi',w:0.26},{t:'FAST',n:'Fastenal',w:0.24},
+];
 
-var SK=‘rentacrm-data’;
-var SEED={properties:[{id:‘p1’,name:‘Depto 2 amb Centro’,type:‘Departamento’,address:‘Av. Rivadavia 1234, CABA’,rooms:2,available:false,depositAmount:200000},{id:‘p2’,name:‘Casa 3 dorm Guadalupe’,type:‘Casa’,address:‘Calle San Martin 567, Guadalupe’,rooms:3,available:false,depositAmount:400000},{id:‘p3’,name:‘PH reciclado Barrio Sur’,type:‘PH’,address:‘Pasaje Los Andes 89, Barrio Sur’,rooms:2,available:true,depositAmount:280000},{id:‘p4’,name:‘Monoambiente Microcentro’,type:‘Departamento’,address:‘Lavalle 890, CABA’,rooms:1,available:true,depositAmount:150000},{id:‘p5’,name:‘Depto 3 amb Palermo’,type:‘Departamento’,address:‘Honduras 4200, CABA’,rooms:3,available:false,depositAmount:450000},{id:‘p6’,name:‘Casa 4 dorm Caballito’,type:‘Casa’,address:‘Av. Pedro Goyena 1100, CABA’,rooms:4,available:true,depositAmount:500000}],tenants:[{id:‘t1’,name:‘Martin Aguirre’,phone:‘11-2345-6789’,email:‘martin.a@email.com’,dni:‘30.456.789’},{id:‘t2’,name:‘Luciana Mendez’,phone:‘11-3456-7890’,email:‘luciana.m@email.com’,dni:‘28.567.890’},{id:‘t3’,name:‘Familia Dominguez’,phone:‘11-4567-8901’,email:‘dominguez@email.com’,dni:‘35.678.901’},{id:‘t4’,name:‘Carlos Pereyra’,phone:‘11-5678-9012’,email:‘carlos.p@email.com’,dni:‘32.789.012’}],owners:[{id:‘o1’,name:‘Ricardo Fernandez’,phone:‘11-1111-2222’,email:‘ricardo.f@email.com’,mood:3},{id:‘o2’,name:‘Claudia Rossi de Martinez’,phone:‘11-2222-3333’,email:‘claudia.r@email.com’,mood:3},{id:‘o3’,name:‘Inversiones del Litoral S.R.L.’,phone:‘11-3333-4444’,email:‘info@invlitoral.com’,mood:3},{id:‘o4’,name:‘Marta Elena Luciano’,phone:‘11-4444-5555’,email:‘marta.l@email.com’,mood:3}],contracts:[{id:‘c1’,propertyId:‘p1’,tenantId:‘t1’,ownerId:‘o1’,rent:420000,commission:10,startDate:‘2024-06-01’,endDate:‘2026-06-01’,active:true},{id:‘c2’,propertyId:‘p2’,tenantId:‘t2’,ownerId:‘o2’,rent:680000,commission:4,startDate:‘2024-09-01’,endDate:‘2026-09-01’,active:true},{id:‘c3’,propertyId:‘p5’,tenantId:‘t4’,ownerId:‘o3’,rent:550000,commission:8,startDate:‘2025-01-01’,endDate:‘2027-01-01’,active:true},{id:‘c4’,propertyId:‘p3’,tenantId:‘t3’,ownerId:‘o4’,rent:480000,commission:0,startDate:‘2024-03-01’,endDate:‘2025-03-01’,active:false}],payments:[{id:‘pay1’,contractId:‘c1’,month:‘2026-02’,amount:420000,paid:true,paidDate:‘2026-02-05’},{id:‘pay2’,contractId:‘c1’,month:‘2026-01’,amount:420000,paid:true,paidDate:‘2026-01-07’},{id:‘pay3’,contractId:‘c2’,month:‘2026-02’,amount:680000,paid:true,paidDate:‘2026-02-01’},{id:‘pay4’,contractId:‘c2’,month:‘2026-01’,amount:680000,paid:true,paidDate:‘2026-01-03’},{id:‘pay5’,contractId:‘c3’,month:‘2026-02’,amount:550000,paid:false,paidDate:null},{id:‘pay6’,contractId:‘c3’,month:‘2026-01’,amount:550000,paid:true,paidDate:‘2026-01-10’},{id:‘pay7’,contractId:‘c1’,month:‘2025-12’,amount:400000,paid:false,paidDate:null}],complaints:[{id:‘q1’,propertyId:‘p2’,tenantId:‘t2’,ownerId:‘o2’,subject:‘Humedad en bano’,status:‘abierta’,date:‘2026-02-10’,description:‘Filtracion en el techo’},{id:‘q2’,propertyId:‘p5’,tenantId:‘t4’,ownerId:‘o3’,subject:‘Calefaccion rota’,status:‘abierta’,date:‘2026-02-15’,description:‘El calefactor no enciende’},{id:‘q3’,propertyId:‘p1’,tenantId:‘t1’,ownerId:‘o1’,subject:‘Portero electrico’,status:‘abierta’,date:‘2026-02-20’,description:‘No funciona el portero’},{id:‘q4’,propertyId:‘p3’,tenantId:‘t3’,ownerId:‘o4’,subject:‘Cano roto cocina’,status:‘abierta’,date:‘2026-01-28’,description:‘Perdida de agua’}]};
-var D,sec=‘panel’;
-try{var r=localStorage.getItem(SK);D=r?JSON.parse(r):null}catch(e){}
-if(!D||!D.properties)D=JSON.parse(JSON.stringify(SEED));
-try{localStorage.setItem(SK,JSON.stringify(D))}catch(e){}
-function sv(){try{localStorage.setItem(SK,JSON.stringify(D))}catch(e){}}
-function resetD(){if(confirm(‘Resetear?’)){D=JSON.parse(JSON.stringify(SEED));sv();R()}}
-function exportD(){var b=new Blob([JSON.stringify(D,null,2)],{type:‘application/json’});var a=document.createElement(‘a’);a.href=URL.createObjectURL(b);a.download=‘rentacrm-backup.json’;a.click()}
-function importD(){var inp=document.createElement(‘input’);inp.type=‘file’;inp.accept=’.json’;inp.onchange=function(e){var f=e.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(ev){try{var d=JSON.parse(ev.target.result);if(d.properties){D=d;sv();R();alert(‘Importado!’)}}catch(e){alert(‘Error’)}};rd.readAsText(f)};inp.click()}
-function fmt(n){return’$ ‘+Number(n).toLocaleString(‘es-AR’)}
-function uid(){return’x’+Date.now()+Math.random().toString(36).slice(2,6)}
-function gP(id){for(var i=0;i<D.properties.length;i++)if(D.properties[i].id===id)return D.properties[i];return{}}
-function gT(id){for(var i=0;i<D.tenants.length;i++)if(D.tenants[i].id===id)return D.tenants[i];return{}}
-function gO(id){for(var i=0;i<D.owners.length;i++)if(D.owners[i].id===id)return D.owners[i];return{}}
-function gC(id){for(var i=0;i<D.contracts.length;i++)if(D.contracts[i].id===id)return D.contracts[i];return{}}
-function E(s){var d=document.createElement(‘div’);d.textContent=s;return d.innerHTML}
-function MJ(m){return[’’,’😡’,’😟’,’😐’,’🙂’,’😄’][m]||’😐’}
-function AV(n){return’hsl(’+(n||’’).length*37%360+’,45%,40%)’}
-function IN(n){return(n||’’).split(’ ‘).map(function(w){return w[0]}).join(’’).slice(0,2).toUpperCase()}
-function TD(){var d=new Date(),ds=[‘dom’,‘lun’,‘mar’,‘mie’,‘jue’,‘vie’,‘sab’],ms=[‘ene’,‘feb’,‘mar’,‘abr’,‘may’,‘jun’,‘jul’,‘ago’,‘sep’,‘oct’,‘nov’,‘dic’];return ds[d.getDay()]+’ ‘+d.getDate()+’ ’+ms[d.getMonth()]}
-function ST(){var a=[],tr=0,td=0,mc=0,up=[],oc=0,am=0;for(var i=0;i<D.contracts.length;i++)if(D.contracts[i].active)a.push(D.contracts[i]);for(var i=0;i<a.length;i++){tr+=a[i].rent;mc+=a[i].rent*a[i].commission/100}for(var i=0;i<D.properties.length;i++)td+=(D.properties[i].depositAmount||0);for(var i=0;i<D.payments.length;i++)if(!D.payments[i].paid)up.push(D.payments[i]);var uci={};for(var i=0;i<up.length;i++)uci[up[i].contractId]=1;var mC=0;for(var k in uci)for(var i=0;i<a.length;i++)if(a[i].id===k)mC++;var mor=a.length>0?mC/a.length:0;var avC=0;for(var i=0;i<D.properties.length;i++)if(D.properties[i].available)avC++;var avP=D.properties.length>0?avC/D.properties.length*100:0;for(var i=0;i<D.complaints.length;i++)if(D.complaints[i].status===‘abierta’)oc++;for(var i=0;i<D.owners.length;i++)am+=(D.owners[i].mood||3);am=D.owners.length>0?am/D.owners.length:3;return{tm:tr*2+td,tr:tr,td:td,mc:mc,mor:mor,avC:avC,avP:avP,oc:oc,am:am,a:a,up:up}}
-function addI(c,o){o.id=uid();D[c].push(o);sv();CM();R()}
-function updI(c,id,u){for(var i=0;i<D[c].length;i++)if(D[c][i].id===id){for(var k in u)D[c][i][k]=u[k];break}sv();CM();R()}
-function delI(c,id){if(!confirm(‘Eliminar?’))return;D[c]=D[c].filter(function(x){return x.id!==id});sv();R()}
-function MP(id){for(var i=0;i<D.payments.length;i++)if(D.payments[i].id===id){D.payments[i].paid=true;D.payments[i].paidDate=new Date().toISOString().split(‘T’)[0]}sv();R()}
-function OM(t,h){document.getElementById(‘mr’).innerHTML=`<div class="mo" onclick="CM()"><div class="mb" onclick="event.stopPropagation()"><div class="mh"><h3>${t}</h3><button class="mx" onclick="CM()">&#10005;</button></div>${h}</div></div>`}
-function CM(){document.getElementById(‘mr’).innerHTML=’’}
-var NV=[{h:‘ADMIN’},{k:‘panel’,i:’⚡’,l:‘Panel Admin’},{h:‘GENERAL’},{k:‘dashboard’,i:’📊’,l:‘Dashboard’},{h:‘PROPIEDADES’},{k:‘properties’,i:’🏠’,l:‘Propiedades’},{k:‘owners’,i:’👤’,l:‘Propietarios’},{h:‘GESTION’},{k:‘tenants’,i:’🔑’,l:‘Inquilinos’},{k:‘contracts’,i:’📝’,l:‘Contratos’},{k:‘payments’,i:’💰’,l:‘Cobranzas’},{k:‘complaints’,i:’📣’,l:‘Quejas’}];
-function RN(){var oc=0;for(var i=0;i<D.complaints.length;i++)if(D.complaints[i].status===‘abierta’)oc++;var h=’’;for(var j=0;j<NV.length;j++){var n=NV[j];if(n.h){h+=`<div class="nh">${n.h}</div>`;continue}var b=’’;if(n.k===‘complaints’&&oc>0)b=`<span class="nb r">${oc}</span>`;else if(n.k===‘tenants’&&D.tenants.length>0)b=`<span class="nb p">${D.tenants.length}</span>`;h+=`<button class="ni${sec===n.k?' on':''}" onclick="sec='${n.k}';R()"><em>${n.i}</em>${n.l}${b}</button>`}document.getElementById(‘nv’).innerHTML=h}
+let data = HOLDINGS.map(h => ({...h, price:null, chg:null}));
+let currentSort = 'weight', currentView = 'table', filterText = '';
 
-function PF(it){var i=it||{name:’’,type:‘Departamento’,address:’’,rooms:1,available:true,depositAmount:0};var eid=it?i.id:’’;return `<div class="ff"><label>Nombre</label><input id="fn" value="${E(i.name)}"></div><div class="fr"><div class="ff"><label>Tipo</label><select id="ft"><option${i.type==='Departamento'?' selected':''}>Departamento</option><option${i.type==='Casa'?' selected':''}>Casa</option><option${i.type==='PH'?' selected':''}>PH</option><option${i.type==='Local'?' selected':''}>Local</option></select></div><div class="ff"><label>Ambientes</label><input type="number" id="fr2" value="${i.rooms}"></div></div><div class="ff"><label>Direccion</label><input id="fa2" value="${E(i.address)}"></div><div class="fr"><div class="ff"><label>Deposito ($)</label><input type="number" id="fd" value="${i.depositAmount}"></div><div class="ff"><label>Disponible</label><select id="fav"><option value="true"${i.available?' selected':''}>Si</option><option value="false"${!i.available?' selected':''}>No</option></select></div></div><div class="fa"><button class="bt bt2" onclick="CM()">Cancelar</button><button class="bt bt1" onclick="sP('${eid}')">Guardar</button></div>`}
-function sP(id){var o={name:document.getElementById(‘fn’).value,type:document.getElementById(‘ft’).value,address:document.getElementById(‘fa2’).value,rooms:+document.getElementById(‘fr2’).value,available:document.getElementById(‘fav’).value===‘true’,depositAmount:+document.getElementById(‘fd’).value};if(!o.name)return alert(‘Nombre requerido’);id?updI(‘properties’,id,o):addI(‘properties’,o)}
-function TF(it){var i=it||{name:’’,phone:’’,email:’’,dni:’’};var eid=it?i.id:’’;return `<div class="ff"><label>Nombre</label><input id="fn" value="${E(i.name)}"></div><div class="fr"><div class="ff"><label>Telefono</label><input id="fp" value="${E(i.phone)}"></div><div class="ff"><label>DNI</label><input id="fdn" value="${E(i.dni)}"></div></div><div class="ff"><label>Email</label><input id="fe" value="${E(i.email)}"></div><div class="fa"><button class="bt bt2" onclick="CM()">Cancelar</button><button class="bt bt1" onclick="sT('${eid}')">Guardar</button></div>`}
-function sT(id){var o={name:document.getElementById(‘fn’).value,phone:document.getElementById(‘fp’).value,email:document.getElementById(‘fe’).value,dni:document.getElementById(‘fdn’).value};if(!o.name)return alert(‘Nombre requerido’);id?updI(‘tenants’,id,o):addI(‘tenants’,o)}
-function OF(it){var i=it||{name:’’,phone:’’,email:’’,mood:3};var eid=it?i.id:’’;return `<div class="ff"><label>Nombre</label><input id="fn" value="${E(i.name)}"></div><div class="fr"><div class="ff"><label>Telefono</label><input id="fp" value="${E(i.phone)}"></div><div class="ff"><label>Email</label><input id="fe" value="${E(i.email)}"></div></div><div class="ff"><label>Animo (<span id="mv">${i.mood}</span>/5)</label><input type="range" min="1" max="5" value="${i.mood}" id="fm" oninput="document.getElementById('mv').textContent=this.value"><div class="rl"><span>Mal</span><span>Excelente</span></div></div><div class="fa"><button class="bt bt2" onclick="CM()">Cancelar</button><button class="bt bt1" onclick="sO('${eid}')">Guardar</button></div>`}
-function sO(id){var o={name:document.getElementById(‘fn’).value,phone:document.getElementById(‘fp’).value,email:document.getElementById(‘fe’).value,mood:+document.getElementById(‘fm’).value};if(!o.name)return alert(‘Nombre requerido’);id?updI(‘owners’,id,o):addI(‘owners’,o)}
-function CF(it){var i=it||{propertyId:(D.properties[0]||{}).id||’’,tenantId:(D.tenants[0]||{}).id||’’,ownerId:(D.owners[0]||{}).id||’’,rent:0,commission:0,startDate:’’,endDate:’’,active:true};var eid=it?i.id:’’;var po=’’,to=’’,oo=’’;for(var j=0;j<D.properties.length;j++){var p=D.properties[j];po+=`<option value="${p.id}"${i.propertyId===p.id?' selected':''}>${E(p.name)}</option>`}for(var j=0;j<D.tenants.length;j++){var t=D.tenants[j];to+=`<option value="${t.id}"${i.tenantId===t.id?' selected':''}>${E(t.name)}</option>`}for(var j=0;j<D.owners.length;j++){var o=D.owners[j];oo+=`<option value="${o.id}"${i.ownerId===o.id?' selected':''}>${E(o.name)}</option>`}return `<div class="fr"><div class="ff"><label>Propiedad</label><select id="fpr">${po}</select></div><div class="ff"><label>Inquilino</label><select id="fte">${to}</select></div></div><div class="fr"><div class="ff"><label>Propietario</label><select id="fow">${oo}</select></div><div class="ff"><label>Comision (%)</label><input type="number" id="fco" value="${i.commission}"></div></div><div class="fr"><div class="ff"><label>Alquiler ($)</label><input type="number" id="fre" value="${i.rent}"></div><div class="ff"><label>Estado</label><select id="fac"><option value="true"${i.active?' selected':''}>Activo</option><option value="false"${!i.active?' selected':''}>Finalizado</option></select></div></div><div class="fr"><div class="ff"><label>Inicio</label><input type="date" id="fsd" value="${i.startDate}"></div><div class="ff"><label>Fin</label><input type="date" id="fed" value="${i.endDate}"></div></div><div class="fa"><button class="bt bt2" onclick="CM()">Cancelar</button><button class="bt bt1" onclick="sC('${eid}')">Guardar</button></div>`}
-function sC(id){var o={propertyId:document.getElementById(‘fpr’).value,tenantId:document.getElementById(‘fte’).value,ownerId:document.getElementById(‘fow’).value,rent:+document.getElementById(‘fre’).value,commission:+document.getElementById(‘fco’).value,startDate:document.getElementById(‘fsd’).value,endDate:document.getElementById(‘fed’).value,active:document.getElementById(‘fac’).value===‘true’};if(!o.rent)return alert(‘Alquiler requerido’);id?updI(‘contracts’,id,o):addI(‘contracts’,o)}
-function YF(it){var ac=D.contracts.filter(function(c){return c.active});var i=it||{contractId:(ac[0]||{}).id||’’,month:’’,amount:(ac[0]||{}).rent||0,paid:false,paidDate:null};var eid=it?i.id:’’;var co=’’;for(var j=0;j<ac.length;j++){var c=ac[j];co+=`<option value="${c.id}"${i.contractId===c.id?' selected':''}>${E(gP(c.propertyId).name||'')} - ${E(gT(c.tenantId).name||'')}</option>`}return `<div class="ff"><label>Contrato</label><select id="fcn">${co}</select></div><div class="fr"><div class="ff"><label>Mes</label><input type="month" id="fmo" value="${i.month}"></div><div class="ff"><label>Monto ($)</label><input type="number" id="fam" value="${i.amount}"></div></div><div class="fr"><div class="ff"><label>Estado</label><select id="fpd" onchange="document.getElementById('pw').style.display=this.value==='true'?'block':'none'"><option value="false"${!i.paid?' selected':''}>Pendiente</option><option value="true"${i.paid?' selected':''}>Pagado</option></select></div><div class="ff" id="pw" style="display:${i.paid?'block':'none'}"><label>Fecha</label><input type="date" id="fpdt" value="${i.paidDate||''}"></div></div><div class="fa"><button class="bt bt2" onclick="CM()">Cancelar</button><button class="bt bt1" onclick="sY('${eid}')">Guardar</button></div>`}
-function sY(id){var pd=document.getElementById(‘fpd’).value===‘true’;var o={contractId:document.getElementById(‘fcn’).value,month:document.getElementById(‘fmo’).value,amount:+document.getElementById(‘fam’).value,paid:pd,paidDate:pd?(document.getElementById(‘fpdt’).value||new Date().toISOString().split(‘T’)[0]):null};if(!o.month)return alert(‘Mes requerido’);id?updI(‘payments’,id,o):addI(‘payments’,o)}
-function QF(it){var i=it||{propertyId:(D.properties[0]||{}).id||’’,tenantId:(D.tenants[0]||{}).id||’’,ownerId:(D.owners[0]||{}).id||’’,subject:’’,status:‘abierta’,date:new Date().toISOString().split(‘T’)[0],description:’’};var eid=it?i.id:’’;var po=’’,to=’’,oo=’’;for(var j=0;j<D.properties.length;j++){var p=D.properties[j];po+=`<option value="${p.id}"${i.propertyId===p.id?' selected':''}>${E(p.name)}</option>`}for(var j=0;j<D.tenants.length;j++){var t=D.tenants[j];to+=`<option value="${t.id}"${i.tenantId===t.id?' selected':''}>${E(t.name)}</option>`}for(var j=0;j<D.owners.length;j++){var o=D.owners[j];oo+=`<option value="${o.id}"${i.ownerId===o.id?' selected':''}>${E(o.name)}</option>`}return `<div class="ff"><label>Asunto</label><input id="fsb" value="${E(i.subject)}"></div><div class="fr"><div class="ff"><label>Propiedad</label><select id="fpr">${po}</select></div><div class="ff"><label>Inquilino</label><select id="fte">${to}</select></div></div><div class="fr"><div class="ff"><label>Propietario</label><select id="fow">${oo}</select></div><div class="ff"><label>Estado</label><select id="fst"><option${i.status==='abierta'?' selected':''}>abierta</option><option${i.status==='en progreso'?' selected':''}>en progreso</option><option${i.status==='resuelta'?' selected':''}>resuelta</option></select></div></div><div class="ff"><label>Descripcion</label><textarea id="fds">${E(i.description)}</textarea></div><div class="fa"><button class="bt bt2" onclick="CM()">Cancelar</button><button class="bt bt1" onclick="sQ('${eid}')">Guardar</button></div>`}
-function sQ(id){var o={propertyId:document.getElementById(‘fpr’).value,tenantId:document.getElementById(‘fte’).value,ownerId:document.getElementById(‘fow’).value,subject:document.getElementById(‘fsb’).value,status:document.getElementById(‘fst’).value,date:new Date().toISOString().split(‘T’)[0],description:document.getElementById(‘fds’).value};if(!o.subject)return alert(‘Asunto requerido’);id?updI(‘complaints’,id,o):addI(‘complaints’,o)}
-function EI(c,id,fn){for(var i=0;i<D[c].length;i++)if(D[c][i].id===id){OM(‘Editar’,window[fn](D[c][i]));return}}
+async function tryFetch(yahooUrl) {
+  const proxies = [
+    `https://api.allorigins.win/get?url=${encodeURIComponent(yahooUrl)}`,
+    `https://corsproxy.io/?${encodeURIComponent(yahooUrl)}`,
+  ];
+  for (const px of proxies) {
+    try {
+      const r = await fetch(px, {signal: AbortSignal.timeout(9000)});
+      if (!r.ok) continue;
+      const raw = await r.json();
+      const text = raw.contents !== undefined ? raw.contents : JSON.stringify(raw);
+      const parsed = JSON.parse(text);
+      return parsed.quoteResponse.result;
+    } catch(e) { continue; }
+  }
+  throw new Error('No se pudo conectar — revisá tu conexión a internet');
+}
 
-function rPanel(){var s=ST();var ml=s.mor<.1?‘grn’:s.mor<.25?‘yel’:‘red’,mll=s.mor<.1?‘BAJO’:s.mor<.25?‘MEDIO’:‘ALTO’;var al=s.am>=4?‘grn’:s.am>=3?‘yel’:‘red’,all=s.am>=4?‘BUENO’:s.am>=3?‘REGULAR’:‘MALO’;var vl=s.avP<20?‘grn’:s.avP<40?‘yel’:‘red’,vll=s.avP<20?‘OPTIMO’:s.avP<40?‘MODERADO’:‘CRITICO’;var cl=s.oc<=1?‘grn’:s.oc<=3?‘yel’:‘red’,cll=s.oc<=1?‘BAJO’:s.oc<=3?‘MEDIO’:‘ALTO’;var er=’’;for(var j=0;j<s.a.length;j++){var c=s.a[j];var pc=0;for(var k=0;k<D.payments.length;k++)if(D.payments[k].contractId===c.id&&D.payments[k].paid)pc++;er+=`<tr><td style="font-weight:600">${E(gP(c.propertyId).name||'')}</td><td style="color:#94a3b8">${E(gT(c.tenantId).name||'')}</td><td>${fmt(c.rent)}</td><td style="color:${c.commission>0?'#22c55e':'#ef4444'};font-weight:700">${c.commission}%</td><td style="color:#8b5cf6;font-weight:700">${fmt(c.rent*c.commission/100)}</td><td>${fmt(pc*c.rent*c.commission/100)}</td></tr>`}var ow=’’;for(var j=0;j<D.owners.length;j++){var o=D.owners[j];var oq=0,mo=false;for(var k=0;k<D.complaints.length;k++)if(D.complaints[k].ownerId===o.id&&D.complaints[k].status===‘abierta’)oq++;for(var k=0;k<D.contracts.length;k++){var cc=D.contracts[k];if(cc.ownerId===o.id&&cc.active)for(var m=0;m<D.payments.length;m++)if(D.payments[m].contractId===cc.id&&!D.payments[m].paid)mo=true}var tg=’’;if(mo)tg+=`<span class="owt" style="background:rgba(234,179,8,.12);color:#eab308">&#9888; Moroso</span>`;if(oq>0)tg+=`<span class="owt" style="background:rgba(239,68,68,.12);color:#ef4444">&#128295; Queja</span>`;ow+=`<div class="ow"><div class="owl"><div class="av" style="background:${AV(o.name)}">${IN(o.name)}</div><div><div style="font-weight:600;font-size:14px">${E(o.name)}</div><div style="margin-top:4px">${tg}</div></div></div><div style="display:flex;align-items:center;gap:8px"><span style="color:#94a3b8;font-size:12px">Animo</span><span style="font-size:20px">${MJ(o.mood)}</span><span style="font-weight:700">${o.mood}</span></div></div>`}return `<div class="hero"><div class="hl">Monto total administrado</div><div class="ha">${fmt(s.tm)}</div><div class="hs">Alquileres: ${fmt(s.tr)}/mes + Depositos: ${fmt(s.td)}</div><div class="hp"><div class="pl plg"><div class="plb">&#128181; INGRESO RECURRENTE</div><div class="plv">${fmt(s.mc)}<span>/mes</span></div></div><div class="pl plp"><div class="plb">&#128188; COMISIONES</div><div class="plv">${fmt(s.mc*12)}<span>/ano</span></div></div></div><div class="hf">${D.properties.length} propiedades | ${D.owners.length} propietarios | ${s.a.length} inquilinos activos</div></div><div class="st">&#127899; Tablero de Control</div><div class="cg"><div class="cc ${ml}"><div class="dt"></div><div class="ct">MOROSIDAD</div><div class="cv">${mll}</div><div class="cd">${s.up.length} pendientes</div></div><div class="cc ${al}"><div class="dt"></div><div class="ct">ANIMO PROPIETARIOS</div><div class="cv">${all}</div><div class="cd">Promedio: ${s.am.toFixed(1)}/5</div></div><div class="cc ${vl}"><div class="dt"></div><div class="ct">DISPONIBILIDAD</div><div class="cv">${vll}</div><div class="cd">${s.avC}/${D.properties.length} (${Math.round(s.avP)}%)</div></div><div class="cc ${cl}"><div class="dt"></div><div class="ct">QUEJAS</div><div class="cv">${cll}</div><div class="cd">${s.oc} sin resolver</div></div></div><div class="sp"><div><div class="st">&#128176; Ganancias</div><div class="cd2"><table><thead><tr><th>Propiedad</th><th>Inquilino</th><th>Alquiler</th><th>Com.</th><th>Gan/mes</th><th>Total</th></tr></thead><tbody>${er||'<tr><td colspan="6" class="em">Sin contratos</td></tr>'}</tbody></table></div></div><div><div class="st">&#128522; Animo Propietarios</div>${ow||'<div class="em">Sin datos</div>'}</div></div>`}
+async function loadData() {
+  const st = document.getElementById('status');
+  st.textContent = 'Cargando...';
+  st.className = 'status loading';
+  document.getElementById('note').textContent = '';
 
-function rDash(){var s=ST(),now=new Date(),cm=now.getFullYear()+’-’+String(now.getMonth()+1).padStart(2,‘0’);var pTM=0,pdTM=0;for(var i=0;i<D.payments.length;i++){if(D.payments[i].paid&&D.payments[i].month===cm)pTM+=D.payments[i].amount;if(!D.payments[i].paid&&D.payments[i].month===cm)pdTM+=D.payments[i].amount}var cr=’’;for(var j=0;j<s.a.length;j++){var c=s.a[j];cr+=`<div class="lr"><div><strong>${E(gP(c.propertyId).name||'')}</strong> <span style="color:#64748b">- ${E(gT(c.tenantId).name||'')}</span></div><span style="color:#22c55e;font-weight:700">${fmt(c.rent)}</span></div>`}var pr=’’;for(var j=0;j<s.up.length;j++){var p=s.up[j];var cc=gC(p.contractId);pr+=`<div class="lr"><div><strong>${E(gP(cc.propertyId).name||'')}</strong> <span style="color:#64748b">${p.month}</span></div><div style="display:flex;align-items:center;gap:10px"><span style="color:#ef4444;font-weight:700">${fmt(p.amount)}</span><button class="btc" onclick="MP('${p.id}')">Cobrar</button></div></div>`}return `<div class="sh"><h3>&#128202; Dashboard</h3></div><div class="dg"><div class="dc"><div class="di">&#127968;</div><div class="dl">Alquileres</div><div class="dv" style="color:#22c55e">${fmt(s.tr)}</div></div><div class="dc"><div class="di">&#128188;</div><div class="dl">Comisiones</div><div class="dv" style="color:#8b5cf6">${fmt(s.mc)}</div></div><div class="dc"><div class="di">&#9989;</div><div class="dl">Cobrado</div><div class="dv" style="color:#06b6d4">${fmt(pTM)}</div></div><div class="dc"><div class="di">&#9203;</div><div class="dl">Pendiente</div><div class="dv" style="color:#ef4444">${fmt(pdTM)}</div></div></div><div class="sp"><div class="cd2"><div class="cd2b"><h4 style="font-weight:700;margin-bottom:14px">Contratos activos</h4>${cr||'<div class="em">Sin contratos</div>'}</div></div><div class="cd2"><div class="cd2b"><h4 style="font-weight:700;margin-bottom:14px">Pagos pendientes</h4>${pr||'<div class="em">Todo al dia!</div>'}</div></div></div>`}
+  const allTickers = ['QQQ', ...HOLDINGS.map(h => h.t)];
+  const batches = [];
+  for (let i = 0; i < allTickers.length; i += 10) batches.push(allTickers.slice(i, i+10));
 
-function CT(col,title,icon,cols,fn){var rows=’’;for(var j=0;j<D[col].length;j++){var it=D[col][j];var cells=’’;for(var k=0;k<cols.length;k++){var c=cols[k];var v=c.r?c.r(it):E(String(it[c.k]||’’));cells+=`<td${c.s?' style="'+c.s+'"':''}>${v}</td>`}cells+=`<td style="text-align:center"><button class="bti" onclick="EI('${col}','${it.id}','${fn}')" title="Editar">&#9999;&#65039;</button><button class="bti" onclick="delI('${col}','${it.id}')" title="Eliminar">&#128465;&#65039;</button></td>`;rows+=’<tr>’+cells+’</tr>’}var ths=’’;for(var k=0;k<cols.length;k++)ths+=’<th>’+cols[k].l+’</th>’;ths+=’<th style="text-align:center">Acc.</th>’;return `<div class="sh"><h3>${icon} ${title}</h3><button class="bt bt1" onclick="OM('Nuevo',${fn}())">+ Agregar</button></div><div class="cd2"><table><thead><tr>${ths}</tr></thead><tbody>${rows||'<tr><td colspan="'+(cols.length+1)+'" class="em">Sin registros</td></tr>'}</tbody></table></div>`}
+  try {
+    const results = [];
+    for (const batch of batches) {
+      const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${batch.join(',')}&fields=regularMarketPrice,regularMarketChangePercent&lang=en-US&region=US`;
+      const r = await tryFetch(url);
+      results.push(...r);
+      await new Promise(res => setTimeout(res, 120));
+    }
 
-function rProps(){return CT(‘properties’,‘Propiedades’,’🏠’,[{k:‘name’,l:‘Nombre’,s:‘font-weight:600’},{k:‘type’,l:‘Tipo’},{k:‘address’,l:‘Direccion’},{k:‘rooms’,l:‘Amb.’},{k:‘available’,l:‘Estado’,r:function(i){return i.available?’<span class="bg bgn">Disponible</span>’:’<span class="bg bpr">Alquilada</span>’}},{k:‘depositAmount’,l:‘Deposito’,r:function(i){return fmt(i.depositAmount)}}],‘PF’)}
-function rTen(){return CT(‘tenants’,‘Inquilinos’,’🔑’,[{k:‘name’,l:‘Nombre’,s:‘font-weight:600’},{k:‘dni’,l:‘DNI’},{k:‘phone’,l:‘Tel’},{k:‘email’,l:‘Email’}],‘TF’)}
-function rOwn(){return CT(‘owners’,‘Propietarios’,’👤’,[{k:‘name’,l:‘Nombre’,s:‘font-weight:600’},{k:‘phone’,l:‘Tel’},{k:‘email’,l:‘Email’},{k:‘mood’,l:‘Animo’,r:function(i){return `<span style="display:flex;align-items:center;gap:6px">${MJ(i.mood)} <strong>${i.mood}/5</strong></span>`}}],‘OF’)}
-function rCon(){return CT(‘contracts’,‘Contratos’,’📝’,[{k:‘propertyId’,l:‘Propiedad’,s:‘font-weight:600’,r:function(i){return E(gP(i.propertyId).name||’-’)}},{k:‘tenantId’,l:‘Inquilino’,r:function(i){return E(gT(i.tenantId).name||’-’)}},{k:‘ownerId’,l:‘Propietario’,r:function(i){return E(gO(i.ownerId).name||’-’)}},{k:‘rent’,l:‘Alquiler’,r:function(i){return fmt(i.rent)}},{k:‘commission’,l:‘Com.’,r:function(i){return ‘<span style="color:#22c55e;font-weight:700">’+i.commission+’%</span>’}},{k:‘active’,l:‘Estado’,r:function(i){return i.active?’<span class="bg bgn">Activo</span>’:’<span class="bg bgr">Fin</span>’}}],‘CF’)}
-function rPay(){return CT(‘payments’,‘Cobranzas’,’💰’,[{k:‘contractId’,l:‘Propiedad’,s:‘font-weight:600’,r:function(i){return E(gP(gC(i.contractId).propertyId).name||’-’)}},{k:’_t’,l:‘Inquilino’,r:function(i){return E(gT(gC(i.contractId).tenantId).name||’-’)}},{k:‘month’,l:‘Mes’},{k:‘amount’,l:‘Monto’,r:function(i){return fmt(i.amount)}},{k:‘paid’,l:‘Estado’,r:function(i){return i.paid?’<span class="bg bgn">Pagado</span>’:’<span class="bg brd">Pendiente</span>’}},{k:‘paidDate’,l:‘Fecha’,r:function(i){return i.paidDate||’-’}}],‘YF’)}
-function rQue(){return CT(‘complaints’,‘Quejas’,’📣’,[{k:‘subject’,l:‘Asunto’,s:‘font-weight:600’},{k:‘propertyId’,l:‘Propiedad’,r:function(i){return E(gP(i.propertyId).name||’-’)}},{k:‘tenantId’,l:‘Inquilino’,r:function(i){return E(gT(i.tenantId).name||’-’)}},{k:‘status’,l:‘Estado’,r:function(i){var c=i.status===‘abierta’?‘brd’:i.status===‘en progreso’?‘byl’:‘bgn’;return `<span class="bg ${c}" style="text-transform:capitalize">${E(i.status)}</span>`}},{k:‘date’,l:‘Fecha’}],‘QF’)}
+    const qqq = results.find(q => q.symbol === 'QQQ');
+    if (qqq) {
+      document.getElementById('qqq-price').textContent = '$' + qqq.regularMarketPrice.toFixed(2);
+      const c = qqq.regularMarketChangePercent;
+      const el = document.getElementById('qqq-chg');
+      el.textContent = (c >= 0 ? '+' : '') + c.toFixed(2) + '%';
+      el.style.color = c >= 0 ? '#00c896' : '#ff4d6a';
+    }
+    results.forEach(q => {
+      const row = data.find(d => d.t === q.symbol);
+      if (row) { row.price = q.regularMarketPrice; row.chg = q.regularMarketChangePercent; }
+    });
 
-function R(){RN();document.getElementById(‘dtt’).textContent=TD();var h=’’;switch(sec){case’panel’:h=rPanel();break;case’dashboard’:h=rDash();break;case’properties’:h=rProps();break;case’tenants’:h=rTen();break;case’owners’:h=rOwn();break;case’contracts’:h=rCon();break;case’payments’:h=rPay();break;case’complaints’:h=rQue();break;default:h=rPanel()}document.getElementById(‘ct’).innerHTML=h}
-R();
+    const now = new Date();
+    const ts = now.toLocaleTimeString('es-AR');
+    const h = now.getUTCHours(), m = now.getUTCMinutes();
+    const isOpen = (h > 13 || (h === 13 && m >= 30)) && h < 20;
+    document.getElementById('ts').textContent = `Actualizado ${ts}`;
+    document.getElementById('header-meta').innerHTML =
+      `Mercado NY: <strong style="color:${isOpen?'#00c896':'#ffd060'}">${isOpen?'ABIERTO':'CERRADO'}</strong> &nbsp;·&nbsp; ${ts}`;
+    document.getElementById('note').textContent = 'Datos via proxy público — pueden tener ~1 min de delay. Para datos directos abrí desde un servidor local (python -m http.server 8080).';
 
+    st.textContent = 'Actualizado';
+    st.className = 'status ok';
+    render(); updateSummary();
+    if (currentView === 'map') drawTreemap();
+
+  } catch(e) {
+    st.textContent = 'Error: ' + e.message;
+    st.className = 'status err';
+    document.getElementById('note').textContent = 'Tip: si el error persiste, abrí el archivo vía servidor local: python -m http.server 8080';
+  }
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('table-view').style.display = v === 'table' ? '' : 'none';
+  document.getElementById('map-view').style.display = v === 'map' ? '' : 'none';
+  document.getElementById('btn-table').className = 'btn' + (v==='table'?' active':'');
+  document.getElementById('btn-map').className = 'btn' + (v==='map'?' active':'');
+  if (v === 'map') drawTreemap();
+}
+
+function sortBy(col) {
+  document.getElementById('sortSel').value = col; currentSort = col;
+  ['ticker','weight','price','chg'].forEach(c => { const e = document.getElementById('th-'+c); if(e) e.className = col===c?'sorted':''; });
+  render();
+}
+function applySort() { currentSort = document.getElementById('sortSel').value; render(); }
+function applyFilters() { filterText = document.getElementById('search').value.trim().toLowerCase(); render(); }
+
+function getSorted() {
+  let d = [...data];
+  if (filterText) d = d.filter(r => r.t.toLowerCase().includes(filterText) || r.n.toLowerCase().includes(filterText));
+  if (currentSort==='weight') d.sort((a,b)=>b.w-a.w);
+  else if (currentSort==='chg') d.sort((a,b)=>(b.chg??-999)-(a.chg??-999));
+  else if (currentSort==='chg-asc') d.sort((a,b)=>(a.chg??999)-(b.chg??999));
+  else if (currentSort==='ticker') d.sort((a,b)=>a.t.localeCompare(b.t));
+  else if (currentSort==='price') d.sort((a,b)=>(b.price??0)-(a.price??0));
+  return d;
+}
+
+const fmtChg = v => v===null ? '<span class="chg-neu">—</span>' : `<span class="${v>0?'chg-pos':v<0?'chg-neg':'chg-neu'}">${v>0?'+':''}${v.toFixed(2)}%</span>`;
+const fmtPrice = v => v===null ? '<span class="skel"></span>' : `$${v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
+const barHtml = chg => chg===null ? '<span class="chg-neu">—</span>' :
+  `<div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:${Math.min(Math.abs(chg)/5*100,100).toFixed(1)}%;background:${chg>=0?'#00c896':'#ff4d6a'};"></div></div></div>`;
+
+function render() {
+  const sorted = getSorted();
+  const maxW = Math.max(...data.map(d=>d.w));
+  document.getElementById('tbody').innerHTML = sorted.map(row => {
+    const idx = data.indexOf(row)+1;
+    return `<tr>
+      <td><span class="rank">${idx}</span><span class="ticker-text">${row.t}</span><span class="wbar" style="width:${Math.round(row.w/maxW*55)}px;"></span><br><span class="name">${row.n}</span></td>
+      <td><span style="color:var(--muted)">${row.w.toFixed(2)}%</span></td>
+      <td>${fmtPrice(row.price)}</td>
+      <td>${fmtChg(row.chg)}</td>
+      <td>${barHtml(row.chg)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function updateSummary() {
+  const wd = data.filter(d=>d.chg!==null);
+  document.getElementById('s-up').textContent = wd.filter(d=>d.chg>0).length;
+  document.getElementById('s-dn').textContent = wd.filter(d=>d.chg<0).length;
+  document.getElementById('s-flat').textContent = wd.filter(d=>d.chg===0).length;
+  const top = wd.reduce((b,d)=>(!b||d.chg>b.chg)?d:b,null);
+  const bot = wd.reduce((b,d)=>(!b||d.chg<b.chg)?d:b,null);
+  document.getElementById('s-top').textContent = top ? `${top.t} +${top.chg.toFixed(2)}%` : '—';
+  document.getElementById('s-bot').textContent = bot ? `${bot.t} ${bot.chg.toFixed(2)}%` : '—';
+}
+
+function drawTreemap() {
+  const canvas = document.getElementById('treemap-canvas');
+  const W = canvas.parentElement.offsetWidth || 800;
+  const H = Math.round(W * 0.52);
+  const dpr = window.devicePixelRatio||1;
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  canvas.style.width = W+'px'; canvas.style.height = H+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr,dpr); ctx.clearRect(0,0,W,H);
+
+  const items = [...data].filter(d=>d.w>0).sort((a,b)=>b.w-a.w);
+  const totalW = items.reduce((s,d)=>s+d.w,0);
+
+  function squarify(items,x,y,w,h) {
+    if (!items.length) return [];
+    const rects=[]; let rem=[...items];
+    while(rem.length) {
+      const isH=w>=h; let row=[],rs=0,best=Infinity;
+      for(let i=0;i<rem.length;i++){
+        row.push(rem[i]); rs+=rem[i].w;
+        const ra=(rs/totalW)*w*h, side=isH?h:w;
+        const ratio=Math.max((side*side*rem[i].w)/(ra*ra),(ra*ra)/(side*side*rem[i].w));
+        if(ratio>best&&row.length>1){row.pop();break;} best=ratio;
+      }
+      rem=rem.slice(row.length);
+      const rs2=row.reduce((s,d)=>s+d.w,0), rf=rs2/totalW;
+      let cur=isH?y:x;
+      row.forEach(item=>{
+        const frac=item.w/rs2, rw=isH?w*rf:w*frac, rh=isH?h*frac:h*rf;
+        const rx=isH?x:cur, ry=isH?cur:y;
+        rects.push({...item,rx,ry,rw,rh}); cur+=isH?rh:rw;
+      });
+      if(isH){x+=w*rf;w-=w*rf;}else{y+=h*rf;h-=h*rf;}
+    }
+    return rects;
+  }
+
+  squarify(items,0,0,W,H).forEach(r=>{
+    const c=r.chg;
+    let fill = c===null?'#2a2d3a':c>0?`rgba(0,${Math.round(150+Math.min(c/5,1)*50)},${Math.round(100+Math.min(c/5,1)*50)},${0.3+Math.min(c/5,1)*0.65})`:`rgba(${Math.round(180+Math.min(Math.abs(c)/5,1)*75)},${Math.round(60-Math.min(Math.abs(c)/5,1)*40)},${Math.round(80-Math.min(Math.abs(c)/5,1)*40)},${0.3+Math.min(Math.abs(c)/5,1)*0.65})`;
+    ctx.fillStyle=fill; ctx.fillRect(r.rx+1,r.ry+1,r.rw-2,r.rh-2);
+    ctx.strokeStyle='#0f1117'; ctx.lineWidth=1.5; ctx.strokeRect(r.rx+1,r.ry+1,r.rw-2,r.rh-2);
+    if(r.rw>38&&r.rh>24){
+      const fs=Math.min(14,Math.max(9,r.rw/6));
+      ctx.fillStyle='rgba(255,255,255,0.95)'; ctx.font=`700 ${fs}px 'DM Mono',monospace`;
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      const cy=r.ry+r.rh/2;
+      ctx.fillText(r.t, r.rx+r.rw/2, r.rh>44?cy-8:cy);
+      if(r.rh>44&&c!==null){
+        ctx.font=`400 ${Math.max(9,fs-3)}px 'DM Mono',monospace`;
+        ctx.fillStyle='rgba(255,255,255,0.72)';
+        ctx.fillText((c>=0?'+':'')+c.toFixed(2)+'%', r.rx+r.rw/2, cy+9);
+      }
+    }
+  });
+}
+
+render();
 </script>
 </body>
 </html>
